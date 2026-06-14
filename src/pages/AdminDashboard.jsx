@@ -32,7 +32,7 @@ function AdminDashboard() {
 
   const fetchStudents = async () => {
     try {
-      const res = await axios.get("http://localhost:5000/api/students", {
+      const res = await axios.get("https://college-portal-backend-xao0.onrender.com/api/students", {
         headers: { Authorization: `Bearer ${token}` }
       })
       setStudents(res.data.students)
@@ -41,7 +41,7 @@ function AdminDashboard() {
 
   const fetchFaculty = async () => {
     try {
-      const res = await axios.get("http://localhost:5000/api/faculty", {
+      const res = await axios.get("https://college-portal-backend-xao0.onrender.com/api/faculty", {
         headers: { Authorization: `Bearer ${token}` }
       })
       setFaculty(res.data.faculty)
@@ -50,7 +50,7 @@ function AdminDashboard() {
 
   const fetchNotices = async () => {
     try {
-      const res = await axios.get("http://localhost:5000/api/notices", {
+      const res = await axios.get("https://college-portal-backend-xao0.onrender.com/api/notices", {
         headers: { Authorization: `Bearer ${token}` }
       })
       setNotices(res.data.notices)
@@ -59,7 +59,7 @@ function AdminDashboard() {
 
   const fetchCourses = async () => {
     try {
-      const res = await axios.get("http://localhost:5000/api/courses", {
+      const res = await axios.get("https://college-portal-backend-xao0.onrender.com/api/courses", {
         headers: { Authorization: `Bearer ${token}` }
       })
       setCourses(res.data.courses)
@@ -68,7 +68,7 @@ function AdminDashboard() {
 
   const fetchAdmissions = async () => {
     try {
-      const res = await axios.get("http://localhost:5000/api/admissions", {
+      const res = await axios.get("https://college-portal-backend-xao0.onrender.com/api/admissions", {
         headers: { Authorization: `Bearer ${token}` }
       })
       setAdmissions(res.data.admissions)
@@ -77,7 +77,7 @@ function AdminDashboard() {
 
   const fetchGrievances = async () => {
     try {
-      const res = await axios.get("http://localhost:5000/api/grievances", {
+      const res = await axios.get("https://college-portal-backend-xao0.onrender.com/api/grievances", {
         headers: { Authorization: `Bearer ${token}` }
       })
       setGrievances(res.data.grievances)
@@ -89,7 +89,7 @@ function AdminDashboard() {
     setStudentError("")
     setStudentSuccess("")
     try {
-      await axios.post("http://localhost:5000/api/students", studentForm, {
+      await axios.post("https://college-portal-backend-xao0.onrender.com/api/students", studentForm, {
         headers: { Authorization: `Bearer ${token}` }
       })
       setStudentSuccess("Student added successfully!")
@@ -107,7 +107,7 @@ function AdminDashboard() {
   const deleteStudent = async (id) => {
     if (!window.confirm("Are you sure?")) return
     try {
-      await axios.delete(`http://localhost:5000/api/students/${id}`, {
+      await axios.delete(`https://college-portal-backend-xao0.onrender.com/api/students/${id}`, {
         headers: { Authorization: `Bearer ${token}` }
       })
       fetchStudents()
@@ -117,7 +117,7 @@ function AdminDashboard() {
   const deleteFaculty = async (id) => {
     if (!window.confirm("Are you sure?")) return
     try {
-      await axios.delete(`http://localhost:5000/api/faculty/${id}`, {
+      await axios.delete(`https://college-portal-backend-xao0.onrender.com/api/faculty/${id}`, {
         headers: { Authorization: `Bearer ${token}` }
       })
       fetchFaculty()
@@ -127,7 +127,7 @@ function AdminDashboard() {
   const postNotice = async (e) => {
     e.preventDefault()
     try {
-      await axios.post("http://localhost:5000/api/notices", {
+      await axios.post("https://college-portal-backend-xao0.onrender.com/api/notices", {
         ...noticeForm, postedBy: user.id
       }, { headers: { Authorization: `Bearer ${token}` } })
       setNoticeForm({ title: "", content: "", targetRole: "all" })
@@ -138,7 +138,7 @@ function AdminDashboard() {
   const deleteNotice = async (id) => {
     if (!window.confirm("Are you sure?")) return
     try {
-      await axios.delete(`http://localhost:5000/api/notices/${id}`, {
+      await axios.delete(`https://college-portal-backend-xao0.onrender.com/api/notices/${id}`, {
         headers: { Authorization: `Bearer ${token}` }
       })
       fetchNotices()
@@ -148,7 +148,7 @@ function AdminDashboard() {
   const addCourse = async (e) => {
     e.preventDefault()
     try {
-      await axios.post("http://localhost:5000/api/courses", courseForm, {
+      await axios.post("https://college-portal-backend-xao0.onrender.com/api/courses", courseForm, {
         headers: { Authorization: `Bearer ${token}` }
       })
       setCourseForm({ name: "", code: "", department: "", semester: "", credits: 3, faculty: "" })
@@ -159,7 +159,7 @@ function AdminDashboard() {
   const deleteCourse = async (id) => {
     if (!window.confirm("Are you sure?")) return
     try {
-      await axios.delete(`http://localhost:5000/api/courses/${id}`, {
+      await axios.delete(`https://college-portal-backend-xao0.onrender.com/api/courses/${id}`, {
         headers: { Authorization: `Bearer ${token}` }
       })
       fetchCourses()
@@ -168,7 +168,7 @@ function AdminDashboard() {
 
   const updateAdmission = async (id, status) => {
     try {
-      await axios.patch(`http://localhost:5000/api/admissions/${id}`, { status }, {
+      await axios.patch(`https://college-portal-backend-xao0.onrender.com/api/admissions/${id}`, { status }, {
         headers: { Authorization: `Bearer ${token}` }
       })
       fetchAdmissions()
@@ -178,7 +178,7 @@ function AdminDashboard() {
   const deleteAdmission = async (id) => {
     if (!window.confirm("Are you sure you want to delete this admission?")) return
     try {
-      await axios.delete(`http://localhost:5000/api/admissions/${id}`, {
+      await axios.delete(`https://college-portal-backend-xao0.onrender.com/api/admissions/${id}`, {
         headers: { Authorization: `Bearer ${token}` }
       })
       fetchAdmissions()
@@ -187,7 +187,7 @@ function AdminDashboard() {
 
   const updateGrievance = async (id, status) => {
     try {
-      await axios.patch(`http://localhost:5000/api/grievances/${id}`, {
+      await axios.patch(`https://college-portal-backend-xao0.onrender.com/api/grievances/${id}`, {
         status, response: responseText[id] || ""
       }, { headers: { Authorization: `Bearer ${token}` } })
       fetchGrievances()
@@ -197,7 +197,7 @@ function AdminDashboard() {
   const deleteGrievance = async (id) => {
     if (!window.confirm("Are you sure?")) return
     try {
-      await axios.delete(`http://localhost:5000/api/grievances/${id}`, {
+      await axios.delete(`https://college-portal-backend-xao0.onrender.com/api/grievances/${id}`, {
         headers: { Authorization: `Bearer ${token}` }
       })
       fetchGrievances()

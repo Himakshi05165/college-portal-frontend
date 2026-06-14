@@ -23,7 +23,7 @@ function Login() {
     setError("")
 
     try {
-      const response = await axios.post("http://localhost:5000/api/auth/login", formData)
+      const response = await axios.post("https://college-portal-backend-xao0.onrender.com/api/auth/login", formData)
       const { token, user } = response.data
 
       localStorage.setItem("token", token)

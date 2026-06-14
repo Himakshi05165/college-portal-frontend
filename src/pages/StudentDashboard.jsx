@@ -27,7 +27,7 @@ function StudentDashboard() {
 
   const fetchStudentProfile = async () => {
   try {
-    const res = await axios.get(`http://localhost:5000/api/students/user/${user.id}`, {
+    const res = await axios.get(`https://college-portal-backend-xao0.onrender.com/api/students/user/${user.id}`, {
       headers: { Authorization: `Bearer ${token}` }
     })
     setStudentProfile(res.data.student)
@@ -39,7 +39,7 @@ function StudentDashboard() {
 
   const fetchNotices = async () => {
     try {
-      const res = await axios.get("http://localhost:5000/api/notices", {
+      const res = await axios.get("https://college-portal-backend-xao0.onrender.com/api/notices", {
         headers: { Authorization: `Bearer ${token}` }
       })
       setNotices(res.data.notices)
@@ -49,7 +49,7 @@ function StudentDashboard() {
   const fetchAttendance = async (profile) => {
     try {
       if (!profile?._id) return
-      const res = await axios.get(`http://localhost:5000/api/attendance/student/${profile._id}`, {
+      const res = await axios.get(`https://college-portal-backend-xao0.onrender.com/api/attendance/student/${profile._id}`, {
         headers: { Authorization: `Bearer ${token}` }
       })
       setAttendance(res.data.attendance)
@@ -59,7 +59,7 @@ function StudentDashboard() {
   const fetchResults = async (profile) => {
     try {
       if (!profile?._id) return
-      const res = await axios.get(`http://localhost:5000/api/results/student/${profile._id}`, {
+      const res = await axios.get(`https://college-portal-backend-xao0.onrender.com/api/results/student/${profile._id}`, {
         headers: { Authorization: `Bearer ${token}` }
       })
       setResults(res.data.results)
@@ -68,7 +68,7 @@ function StudentDashboard() {
 
   const fetchGrievances = async () => {
     try {
-      const res = await axios.get("http://localhost:5000/api/grievances", {
+      const res = await axios.get("https://college-portal-backend-xao0.onrender.com/api/grievances", {
         headers: { Authorization: `Bearer ${token}` }
       })
       const myGrievances = res.data.grievances.filter(g => g.email === user?.email)
@@ -79,7 +79,7 @@ function StudentDashboard() {
   const deleteGrievance = async (id) => {
     if (!window.confirm("Are you sure?")) return
     try {
-      await axios.delete(`http://localhost:5000/api/grievances/${id}`, {
+      await axios.delete(`https://college-portal-backend-xao0.onrender.com/api/grievances/${id}`, {
         headers: { Authorization: `Bearer ${token}` }
       })
       fetchGrievances()
@@ -89,7 +89,7 @@ function StudentDashboard() {
   const submitGrievance = async (e) => {
     e.preventDefault()
     try {
-      await axios.post("http://localhost:5000/api/grievances", grievanceForm, {
+      await axios.post("https://college-portal-backend-xao0.onrender.com/api/grievances", grievanceForm, {
         headers: { Authorization: `Bearer ${token}` }
       })
       setSubmitted(true)

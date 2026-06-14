@@ -27,7 +27,7 @@ function FacultyDashboard() {
 
   const fetchNotices = async () => {
     try {
-      const res = await axios.get("http://localhost:5000/api/notices", {
+      const res = await axios.get("https://college-portal-backend-xao0.onrender.com/api/notices", {
         headers: { Authorization: `Bearer ${token}` }
       })
       setNotices(res.data.notices)
@@ -36,7 +36,7 @@ function FacultyDashboard() {
 
   const fetchCourses = async () => {
     try {
-      const res = await axios.get("http://localhost:5000/api/courses", {
+      const res = await axios.get("https://college-portal-backend-xao0.onrender.com/api/courses", {
         headers: { Authorization: `Bearer ${token}` }
       })
       setCourses(res.data.courses)
@@ -45,7 +45,7 @@ function FacultyDashboard() {
 
   const fetchStudents = async () => {
     try {
-      const res = await axios.get("http://localhost:5000/api/students", {
+      const res = await axios.get("https://college-portal-backend-xao0.onrender.com/api/students", {
         headers: { Authorization: `Bearer ${token}` }
       })
       setStudents(res.data.students)
@@ -64,7 +64,7 @@ function FacultyDashboard() {
   const markAttendance = async (e) => {
     e.preventDefault()
     try {
-      await axios.post("http://localhost:5000/api/attendance", {
+      await axios.post("https://college-portal-backend-xao0.onrender.com/api/attendance", {
         courseId: selectedCourse,
         facultyId: user.id,
         date: attendanceDate,
@@ -77,7 +77,7 @@ function FacultyDashboard() {
   const addResult = async (e) => {
     e.preventDefault()
     try {
-      await axios.post("http://localhost:5000/api/results", resultForm, {
+      await axios.post("https://college-portal-backend-xao0.onrender.com/api/results", resultForm, {
         headers: { Authorization: `Bearer ${token}` }
       })
       setResultForm({ student: "", course: "", semester: "", internalMarks: "", externalMarks: "", academicYear: "" })
