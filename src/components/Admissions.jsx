@@ -25,7 +25,7 @@ function Admissions() {
     e.preventDefault()
     setLoading(true)
     try {
-      await axios.post("http://localhost:5000/api/admissions", formData)
+      await axios.post("https://college-portal-backend-xao0.onrender.com/api/admissions", formData)
       setSubmitted(true)
     } catch (error) {
       console.log(error)
