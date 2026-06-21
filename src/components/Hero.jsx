@@ -24,7 +24,7 @@ function Hero() {
           Fashion Institute of Modern Design
         </h1>
 
-        <p className="text-gray-400 text-xl mt-6 max-w-2xl">
+        <p className="text-gray-400 text-xl mt-6 max-w-2xl mx-auto">
           Build your future in fashion, creativity, luxury branding and modern design.
         </p>
 
